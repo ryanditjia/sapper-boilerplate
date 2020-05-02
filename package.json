@@ -2,6 +2,7 @@
 	"name": "sapper-boilerplate",
 	"description": "Sapper boilerplate with Tailwind, ESLint, NProgress, etc.",
 	"version": "0.0.1",
+	"license": "MIT",
 	"scripts": {
 		"dev": "sapper dev",
 		"build": "NODE_ENV=production sapper build --legacy",
