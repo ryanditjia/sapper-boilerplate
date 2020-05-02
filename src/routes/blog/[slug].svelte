@@ -14,6 +14,8 @@
 </script>
 
 <script>
+	import PageTransition from '../../components/PageTransition.svelte'
+
 	export let post
 </script>
 
@@ -57,8 +59,10 @@
 	<title>{post.title}</title>
 </svelte:head>
 
-<h1>{post.title}</h1>
+<PageTransition>
+	<h1>{post.title}</h1>
 
-<div class="content">
-	{@html post.html}
-</div>
+	<div class="content">
+		{@html post.html}
+	</div>
+</PageTransition>
