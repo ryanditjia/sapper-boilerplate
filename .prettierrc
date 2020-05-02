@@ -2,7 +2,9 @@
 	"semi": false,
 	"singleQuote": true,
 	"useTabs": true,
+	"arrowParens": "always",
 	"trailingComma": "all",
+	"endOfLine": "lf",
 	"printWidth": 100,
 	"svelteBracketNewLine": true
 }
