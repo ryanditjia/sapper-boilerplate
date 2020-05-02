@@ -2,15 +2,16 @@
 	h1,
 	figure,
 	p {
-		text-align: center;
-		margin: 0 auto;
+		@apply mx-auto text-center;
 	}
 
 	h1 {
-		font-size: 2.8em;
-		text-transform: uppercase;
-		font-weight: 700;
+		@apply text-5xl;
 		margin: 0 0 0.5em 0;
+
+		@screen sm {
+			@apply text-6xl;
+		}
 	}
 
 	figure {
@@ -26,19 +27,13 @@
 	p {
 		margin: 1em auto;
 	}
-
-	@media (min-width: 480px) {
-		h1 {
-			font-size: 4em;
-		}
-	}
 </style>
 
 <svelte:head>
 	<title>Sapper project template</title>
 </svelte:head>
 
-<h1>Great success!</h1>
+<h1 class="uppercase font-bold">Great success!</h1>
 
 <figure>
 	<img alt="Borat" src="great-success.png" />
