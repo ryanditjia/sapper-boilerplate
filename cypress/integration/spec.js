@@ -1,3 +1,5 @@
+/// <reference types="Cypress" />
+
 describe('Sapper template app', () => {
 	beforeEach(() => {
 		cy.visit('/')
