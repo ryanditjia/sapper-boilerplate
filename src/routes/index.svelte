@@ -41,8 +41,8 @@
 	<h1 class="uppercase font-bold">Great success!</h1>
 
 	<figure>
-		<img alt="Borat" src="great-success.png" />
-		<figcaption>HIGH FIVE!</figcaption>
+		<img alt="Success Kid" src="successkid.jpg" />
+		<figcaption>Have fun with Sapper!</figcaption>
 	</figure>
 
 	<p>
