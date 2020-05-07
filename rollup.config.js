@@ -1,13 +1,10 @@
 import commonjs from '@rollup/plugin-commonjs'
 import resolve from '@rollup/plugin-node-resolve'
 import replace from '@rollup/plugin-replace'
-import path from 'path'
 import babel from 'rollup-plugin-babel'
-import postcss from 'rollup-plugin-postcss'
 import svelte from 'rollup-plugin-svelte'
 import { terser } from 'rollup-plugin-terser'
 import config from 'sapper/config/rollup.js'
-import sveltePreprocessPostcss from 'svelte-preprocess-postcss'
 import pkg from './package.json'
 
 const mode = process.env.NODE_ENV
@@ -18,8 +15,7 @@ const onwarn = (warning, onwarn) =>
 	(warning.code === 'CIRCULAR_DEPENDENCY' && /[/\\]@sapper[/\\]/.test(warning.message)) ||
 	onwarn(warning)
 
-// Make Svelte style work with Tailwind’s @apply
-const stylePreprocessor = sveltePreprocessPostcss()
+const { preprocess } = require('./svelte.config')
 
 export default {
 	client: {
@@ -33,10 +29,8 @@ export default {
 			svelte({
 				dev,
 				hydratable: true,
-				preprocess: {
-					style: stylePreprocessor,
-				},
-				emitCss: true,
+				emitCss: false,
+				preprocess: [preprocess],
 			}),
 			resolve({
 				browser: true,
@@ -88,14 +82,7 @@ export default {
 			svelte({
 				generate: 'ssr',
 				dev,
-				preprocess: {
-					style: stylePreprocessor,
-				},
-			}),
-			postcss({
-				// Tailwind
-				minimize: !dev,
-				extract: path.resolve(__dirname, './static/global.css'),
+				preprocess: [preprocess],
 			}),
 			resolve({
 				dedupe: ['svelte'],

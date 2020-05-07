@@ -1,9 +1,7 @@
+const preprocess = require('svelte-preprocess')
+
 module.exports = {
-	preprocess: {
-		style: async () => {
-			return new Promise((resolve) => {
-				resolve({ code: '', map: '' })
-			})
-		},
-	},
+	preprocess: preprocess({
+		postcss: true,
+	}),
 }
