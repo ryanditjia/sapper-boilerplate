@@ -1,13 +1,55 @@
 <script>
-	import PageTransition from '../components/PageTransition.svelte'
+	let isToggled = false
+
+	function toggle() {
+		isToggled = !isToggled
+	}
 </script>
 
-<svelte:head>
-	<title>About</title>
-</svelte:head>
+<style>
+	.custom-btn {
+		@apply bg-red-500 px-4 py-3 shadow rounded;
+	}
 
-<PageTransition>
-	<h1>About this site</h1>
+	.secret-text {
+		@apply opacity-0 pointer-events-none;
 
-	<p>This is the 'about' page. There's not much here.</p>
-</PageTransition>
+		&.is-shown {
+			@apply opacity-100 pointer-events-auto;
+		}
+	}
+
+	dl {
+		& dt {
+			@apply text-xl;
+		}
+
+		& dd {
+			@apply font-normal text-2xl;
+
+			@screen lg {
+				@apply font-bold;
+			}
+
+			&:hover {
+				@apply text-blue-700;
+			}
+		}
+	}
+</style>
+
+<div class="space-y-16">
+	<div class="text-3xl italic text-accent">I’m a purple-colored italic text</div>
+
+	<div>
+		<button class="custom-btn" on:click={toggle}>I’m a red button. Click me</button>
+
+		<div class="secret-text" class:is-shown={isToggled}>You found a secret text</div>
+	</div>
+
+	<!-- If you enable nesting -->
+	<dl>
+		<dt>What am I</dt>
+		<dd>I’m a text that should turn bold at large viewport. And blue when hovered.</dd>
+	</dl>
+</div>

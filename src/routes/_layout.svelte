@@ -23,9 +23,7 @@
 	export let segment
 </script>
 
-<style global>
-	@import '../assets/global.pcss';
-
+<style>
 	main {
 		position: relative;
 		max-width: 56em;

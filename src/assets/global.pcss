@@ -1,41 +1,4 @@
+@import './base.pcss';
 @import './nprogress.pcss';
-
-@tailwind base;
-
-html {
-	/* prettier-ignore */
-	font-family:
-	system-ui,
-	-apple-system /* macOS 10.11-10.12 */,
-	'Segoe UI' /* Windows 6+ */,
-	'Roboto' /* Android 4+ */,
-	'Ubuntu' /* Ubuntu 10.10+ */,
-	'Cantarell' /* Gnome 3+ */,
-	'Noto Sans' /* KDE Plasma 5+ */,
-	sans-serif /* fallback */,
-	'Apple Color Emoji' /* macOS emoji */,
-	'Segoe UI Emoji' /* Windows emoji */,
-	'Segoe UI Symbol' /* Windows emoji */,
-	'Noto Color Emoji' /* Linux emoji */;
-}
-
-[aria-hidden='true'] {
-	display: none;
-}
-
-a,
-button {
-	@apply transition-all duration-200 ease-in-out;
-}
-
-abbr[title] {
-	cursor: help;
-}
-
-summary {
-	cursor: pointer;
-}
-
-@tailwind components;
-
-@tailwind utilities;
+@import './components.pcss';
+@import './utilities.pcss';
